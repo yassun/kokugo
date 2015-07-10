@@ -7,14 +7,9 @@ import (
 )
 
 func Print(s string) {
-	lines := strings.Split(s, "\n")
 
-	maxLen := 0
-	for _, line := range lines {
-		if lineLen := utf8.RuneCountInString(line); maxLen < lineLen {
-			maxLen = lineLen
-		}
-	}
+	lines := strings.Split(s, "\n")
+	maxLen := getMaxLen(lines)
 
 	wrokLines := make([]string, cap(lines))
 	for i, line := range lines {
@@ -32,6 +27,15 @@ func Print(s string) {
 		fmt.Println(string(runes[i]))
 	}
 
+}
+
+func getMaxLen(lines []string) (maxLen int) {
+	for _, line := range lines {
+		if lineLen := utf8.RuneCountInString(line); maxLen < lineLen {
+			maxLen = lineLen
+		}
+	}
+	return maxLen
 }
 
 func string2Runes(strings []string) [][]rune {
