@@ -23,3 +23,7 @@ $ go run kokugo.go
 　込
 　む
 ```
+
+## License
+
+[MIT](https://github.com/yassun/kokugo/blob/master/LICENSE)
